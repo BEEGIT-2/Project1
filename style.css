@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #1e2e4400;
@@ -57,6 +61,13 @@ nav ul li a:hover {
     color: #3498db;
 }
 
+.logo {
+    display: flex;
+    padding-right: 30%;
+    height: 90px;
+    width: 100px;
+}
+
 
 
 /* Hero Section */
@@ -75,6 +86,58 @@ nav ul li a:hover {
     animation: slideInLeft 1s ease-out;
 }
 
+
+.HERO {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden; /* Hide anything outside the hero section */
+}
+
+.ticker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 60px; /* Adjust based on text size */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.scrolling-text {
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #b2bcdd;
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%; /* Start off-screen to the right */
+    animation: typewriter 0.5s steps(50) 0.5s forwards, slide 15s linear infinite; /* Typing and sliding animation */
+}
+
+/* Typing effect */
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%; /* Finish typing the full text */
+    }
+}
+
+/* Sliding effect */
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-200%); /* Slide the text off the screen */
+    }
+}
+
+
 .color-change {
     font-size: 24px;
     animation: colorChange 5s infinite;
@@ -84,21 +147,7 @@ nav ul li a:hover {
     animation:colorChange 4s infinite ;
 }
 
-button {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    animation: bounceIn 1s ease-out;
-    margin-top: 20px; /* Adds space above button */
-}
 
-button:hover {
-    background-color: #2980b9;
-}
 
 
 /* About Section */
@@ -294,17 +343,69 @@ button:hover {
 /* Joe Section */
 .joe {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: space-between;
     padding: 60px 20px;
-    margin-bottom: 80px; /* Adds space below Joe */
     background-color: #b8b8b8;
-    animation: fadeInUp 1.5s ease-out;
 }
 
-.joe .text {
-    width: 60%;
-    animation: slideInLeft 1.5s ease-out;
+.joe-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 18%; /* Default width for the smaller items */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2 4 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
 }
+
+.joe-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.joe-item .joe-text h3 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.joe-item .joe-text p {
+    font-size: 1em;
+    color: #555;
+}
+
+.joe-item.large-item {
+    width: 20%; /* Larger width for the first two items */
+}
+
+.joe-item:hover {
+    transform: scale(1.05); /* Slightly enlarge the item on hover */
+}
+
+@media (max-width: 768px) {
+    .joe-item {
+        width: 48%; /* Two columns on medium screens */
+    }
+
+    .joe-item.large-item {
+        width: 48%; /* Keep the large items' widths the same on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .joe-item {
+        width: 100%; /* Full-width on small screens */
+    }
+}
+
+
 
 .thought{
     

@@ -1,13 +1,29 @@
-document.getElementById("showCardsBtn").addEventListener("click", function() {
+// Toggle card section visibility
+document.getElementById("showCardsBtn").addEventListener("click", function () {
     var cardsSection = document.getElementById("cardsSection");
-    // Toggle the display of the cards section
-    if (cardsSection.style.display === "none" || cardsSection.style.display === "") {
-        cardsSection.style.display = "block"; // Show the cards
-    } else {
-        cardsSection.style.display = "none"; // Hide the cards
+    if (cardsSection) {
+        cardsSection.classList.toggle("show");
     }
 });
-document.getElementById("showCardsBtn").addEventListener("click", function() {
-    var cardsSection = document.getElementById("cardsSection");
-    cardsSection.classList.toggle("show"); // Toggle the visibility of the cards
+
+// Update scrolling text (ensure element exists)
+var scrollText = document.getElementById("scrollText");
+if (scrollText) {
+    scrollText.textContent = "Your new dynamic message goes here!";
+}
+
+// Smooth scrolling for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: "smooth",
+            });
+        }
+    });
 });
