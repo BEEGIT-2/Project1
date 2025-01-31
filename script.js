@@ -27,3 +27,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+  // Initialize EmailJS
+  emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+
+  // Form submission
+  document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevents the page from reloading
+
+      // Get form data
+      var name = document.getElementById("name").value;
+      var location = document.getElementById("location").value;
+      var phone = document.getElementById("phone").value;
+      var specialization = document.getElementById("specialization").value;
+
+      // Send email via EmailJS
+      var templateParams = {
+          name: name,
+          location: location,
+          phone: phone,
+          specialization: specialization
+      };
+
+      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+          .then(function (response) {
+              alert("Email sent successfully!");
+          }, function (error) {
+              alert("Error sending email: " + error.text);
+          });
+  });

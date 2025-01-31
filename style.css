@@ -604,11 +604,12 @@ footer p {
 
 .social-icons a {
     margin: 0 10px;
+    width: 50px;
 }
 
 .social-icons img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     transition: transform 0.3s ease;
 }
 
@@ -643,4 +644,15 @@ footer p {
 .logof{display: flex; padding-right: 10%;
     height: 90px;
     width:100px;
+}
+
+.submit {
+    background-image: url("./blue\ coding\ backgr.jpg");
+    background-size: cover; 
+    background-position: center; 
+    background-size: cover; 
+    color: rgba(250, 0, 0, 0.712); 
+    padding: 50px; text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-size-adjust: 30px;
 }
